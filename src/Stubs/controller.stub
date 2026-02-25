@@ -1,0 +1,25 @@
+<?php
+
+namespace {{FeatureNamespace}}\Http\V1\Controllers;
+
+use {{FeatureNamespace}}\Http\V1\Commands\{{StoreCommandName}};
+use {{FeatureNamespace}}\Http\V1\Requests\{{StoreRequestName}};
+use {{FeatureNamespace}}\UseCases\{{StoreUseCaseName}};
+use MMT\ApiResponseNormalizer\ApiResponse;
+
+class {{ControllerName}}
+{
+    use ApiResponse;
+
+    public function __construct(
+        private readonly {{StoreUseCaseName}} $storeUseCase
+    ) { }
+
+    public function __invoke({{StoreRequestName}} $request)
+    {
+        $command = {{StoreCommandName}}::fromRequest($request);
+        $this->storeUseCase->execute($command);
+
+        return $this->created([]);
+    }
+}

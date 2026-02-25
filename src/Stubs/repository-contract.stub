@@ -1,0 +1,10 @@
+<?php
+
+namespace {{FeatureNamespace}}\Repositories\Contracts;
+
+use {{FeatureNamespace}}\Models\{{ModelName}};
+
+interface {{ModelName}}RepositoryInterface
+{
+    //
+}

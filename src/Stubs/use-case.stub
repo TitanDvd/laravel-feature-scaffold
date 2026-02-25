@@ -1,0 +1,13 @@
+<?php
+
+namespace {{FeatureNamespace}}\UseCases;
+
+use {{FeatureNamespace}}\Http\V1\Commands\{{StoreCommandName}};
+
+class {{StoreUseCaseName}}
+{
+    public function execute({{StoreCommandName}} $command): void
+    {
+        //
+    }
+}

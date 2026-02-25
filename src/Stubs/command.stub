@@ -1,0 +1,19 @@
+<?php
+
+namespace {{FeatureNamespace}}\Http\V1\Commands;
+
+use {{FeatureNamespace}}\Http\V1\Requests\{{StoreRequestName}};
+
+class {{StoreCommandName}}
+{
+    public function __construct(
+        //
+    ) { }
+
+    public static function fromRequest({{StoreRequestName}} $request): self
+    {
+        return new self(
+            //
+        );
+    }
+}
