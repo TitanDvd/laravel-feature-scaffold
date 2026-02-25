@@ -10,13 +10,14 @@ use Throwable;
 class MmtException extends Exception
 {
     use ApiResponse;
-    
-    protected string $errorCode;
 
-    protected string $errorMessage;
-
-    public function __construct(string $errorCode, string $errorMessage, int $code = 0, ?Throwable $previous = null)
-    {
+    public function __construct(
+        protected string $errorCode,
+        protected string $errorMessage,
+        protected int $httpStatusCode = 422,
+        protected int $code = 0,
+        ?Throwable $previous = null
+    ) {
         parent::__construct($errorMessage, $code, $previous);
         $this->errorCode = $errorCode;
         $this->errorMessage = $errorMessage;
@@ -38,7 +39,7 @@ class MmtException extends Exception
             $this->errorMessage,
             $this->errorCode,
             [],
-            422
+            $this->httpStatusCode
         );
     }
 }
