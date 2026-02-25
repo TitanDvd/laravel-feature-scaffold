@@ -1,6 +1,6 @@
 {
     "name": "mmt/laravel-feature-scaffold",
-    "description": "Artisan commands to scaffold Laravel feature structure (make:feature, make:feature-model)",
+    "description": "Artisan commands to scaffold Laravel feature structure (make:feature, make:feature-model, make:feature-job, etc.)",
     "type": "library",
     "license": "MIT",
     "require": {
@@ -10,6 +10,13 @@
     "autoload": {
         "psr-4": {
             "MMT\\LaravelFeatureScaffold\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MMT\\LaravelFeatureScaffold\\LaravelFeatureScaffoldServiceProvider"
+            ]
         }
     },
     "minimum-stability": "stable",

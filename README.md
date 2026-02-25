@@ -122,7 +122,19 @@ php artisan make:feature-service Events/EventIngestService
 
 The service is created at `app/Features/{Feature}/Services/{ServiceName}.php` as a plain class in the `Services` namespace.
 
-## Local installation (PSR-4)
+## Installation
+
+### Via Packagist (recommended)
+
+```bash
+composer require mmt/laravel-feature-scaffold
+```
+
+Laravel will **auto-discover** the package's service provider (via `extra.laravel.providers` in the package's `composer.json`). The Artisan commands will be available immediately after `composer install` or `composer update`. No need to register the provider manually.
+
+### Local / development (PSR-4 only)
+
+If you use the package from a local path (e.g. `packages/mmt/laravel-feature-scaffold`) without adding it as a Composer dependency, auto-discovery does not run. You must:
 
 1. **Autoload** – In your Laravel project `composer.json`, add the package path to `autoload.psr-4`:
 
@@ -134,7 +146,7 @@ The service is created at `app/Features/{Feature}/Services/{ServiceName}.php` as
    }
    ```
 
-2. **Register the service provider** – PSR-4 alone does not register the provider. Add it in `bootstrap/providers.php` (create the file if it does not exist):
+2. **Register the service provider** – Add it in `bootstrap/providers.php` (create the file if it does not exist):
 
    ```php
    <?php
