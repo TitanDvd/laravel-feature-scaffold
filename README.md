@@ -2,6 +2,20 @@
 
 Artisan commands to scaffold a feature-based directory structure for Laravel applications, following the pattern used in `app/Features/Events`.
 
+## Installation
+
+```bash
+composer require mmt/laravel-feature-scaffold
+```
+
+This installs the package and its dependency [mmt/api-response-normalizer](https://packagist.org/packages/mmt/api-response-normalizer). Generated controllers use the `ApiResponse` trait for consistent JSON responses. Laravel auto-discovers the service provider; the Artisan commands are available after `composer install` or `composer update`.
+
+To upgrade to the latest version:
+
+```bash
+composer update mmt/laravel-feature-scaffold
+```
+
 ## Requirements
 
 - PHP ^8.2
@@ -122,15 +136,11 @@ php artisan make:feature-service Events/EventIngestService
 
 The service is created at `app/Features/{Feature}/Services/{ServiceName}.php` as a plain class in the `Services` namespace.
 
-## Installation
+## Installation options
 
 ### Via Packagist (recommended)
 
-```bash
-composer require mmt/laravel-feature-scaffold
-```
-
-Laravel will **auto-discover** the package's service provider (via `extra.laravel.providers` in the package's `composer.json`). The Artisan commands will be available immediately after `composer install` or `composer update`. No need to register the provider manually.
+Use the command at the top of this README. No need to register the provider manually.
 
 ### Local / development (PSR-4 only)
 
@@ -172,6 +182,8 @@ packages/mmt/laravel-feature-scaffold/
 ├── README.md
 └── src/
     ├── LaravelFeatureScaffoldServiceProvider.php
+    ├── Exceptions/
+    │   └── MmtException.php
     ├── Console/
     │   ├── MakeFeatureCommand.php
     │   ├── MakeFeatureModelCommand.php
