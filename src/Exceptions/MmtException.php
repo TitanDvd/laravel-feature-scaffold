@@ -15,7 +15,7 @@ class MmtException extends Exception
         protected string $errorCode,
         protected string $errorMessage,
         protected int $httpStatusCode = 422,
-        protected int $code = 0,
+        int $code = 0,
         ?Throwable $previous = null
     ) {
         parent::__construct($errorMessage, $code, $previous);

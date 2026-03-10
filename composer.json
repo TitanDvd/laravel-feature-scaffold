@@ -1,7 +1,7 @@
 {
     "name": "mmt/laravel-feature-scaffold",
     "description": "Artisan commands to scaffold Laravel feature structure (make:feature, make:feature-model, make:feature-job, etc.)",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "type": "library",
     "license": "MIT",
     "require": {
